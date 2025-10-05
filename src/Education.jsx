@@ -1,4 +1,4 @@
-const Hobbies = ({ name, description, image}) => {
+const Education = ({ name, timeline, description, gpa, image}) => {
     return (
         <div className="general-card">
             <div className="general-card-image">
@@ -10,11 +10,12 @@ const Hobbies = ({ name, description, image}) => {
             </div>
             <div className="general-content">
                 <h3 className="general-title">{name}</h3>
+                <h4 className="general-timeline">{timeline}</h4>
+                <h4 className="general-gpa">{gpa}</h4>
                 <p className="general-description">{description}</p>
             </div>
         </div>
     );
 }
 
-
-export default Hobbies;
+export default Education;
