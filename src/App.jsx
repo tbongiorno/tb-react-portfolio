@@ -31,25 +31,25 @@ const hobbies = [
     "key": 1,
     "name": "Video Games",
     "description": "I love to play video games and have been doing so for many years. They are a great way for me to relax at the end of the day and connect with friends online",
-    "image": ""
+    "image": "/src/assets/video-games.jpg"
   },
   {
     "key": 2,
     "name": "Soccer",
     "description": "Soccer has been my favorite sport to play. I've been playing it since I was 5 years old and although I am not that good, I still find time to play in some intramural leagues when I have the time.",
-    "image": ""
+    "image": "/src/assets/soccer.jpg"
   },
   {
     "key": 3,
     "name": "Programming",
     "description": "It may seem weird to put this here, but I have a lot of fun programming and spend a lot of my free time creating new projects.",
-    "image": ""
+    "image": "/src/assets/programming.jpg"
   },
   {
     "key": 4,
     "name": "Biking",
     "description": "When I was around 10 years old, my uncle gave me one of his old mountain bikes. I would ride that bike aroound my neighborhood and have even been using it to get around campus too.",
-    "image": ""
+    "image": "/src/assets/biking.jpg"
   }, 
 ]
 
@@ -199,10 +199,17 @@ const contactContent = (
 )
 
 
-
-
 function App() {
   const [activeTab, setActiveTab] = useState('about')
+  const onButtonClick = () => {
+    const pdfUrl = "src/assets/resume.pdf";
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "ThomasBongiornoResume2025"
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <>
@@ -215,11 +222,20 @@ function App() {
           width="300"
           height="400"
           />
+          
+          <button onClick={onButtonClick}>
+            <img
+            src={"src/assets/resume.jpg"}
+            alt="My Epic Resume"
+            className="header_image"
+            width="300"
+            height="400"
+          />
+          </button>
       </div>
 
-      <h1>Select From Below!</h1>
-      <div className="select-container">
-          <div className="tabs-container">
+      <div className="tabs-container">
+          <div className="tabs-header">
             <button
               className={`tab-button ${activeTab === 'about' ?  'active': ''}`}
               onClick={() => setActiveTab('about')}
@@ -245,7 +261,7 @@ function App() {
               Contact Me
             </button>
           </div>
-          <div className="tabs-displayer">
+          <div className="tabs-content">
             {activeTab === 'about' && aboutContent}
             {activeTab === 'work' && workContent}
             {activeTab === 'projects' && projectsContent}
