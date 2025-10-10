@@ -12,7 +12,6 @@ const schools = [
     "key": 1,
     "name": "Scotch Plains Fanwood High School",
     "timeline": "September 2019 -> June 2023",
-    "description": "",
     "gpa": "3.8",
     "image": "src/assets/spf.jpg"
   },
@@ -20,7 +19,6 @@ const schools = [
     "key": 2,
     "name": "Virginia Polytechnic Institute and State University",
     "timeline": "August 2023 -> Present Day",
-    "description": "",
     "gpa": "3.4",
     "image": "src/assets/vt.jpeg"
   }
@@ -101,26 +99,31 @@ const contacts = [
     "key": 1,
     "platform": "Personal Email",
     "url": "trbongiorno@gmail.com",
+    "image": "src/assets/gmail.png"
   },
   {
     "key": 2,
     "platform": "Student Email",
-    "url": "thomasb23@vt.edu"
+    "url": "thomasb23@vt.edu",
+    "image": "src/assets/outlook.png"
   },
   {
     "key": 3,
     "platform": "Phone Number",
     "url": "908-342-0667",
+    "image": "src/assets/iphone-call.jpg"
   },
   {
     "key": 4,
     "platform": "LinkedIn",
-    "url": "https://www.linkedin.com/in/thomas-bongiorno-90b283298/"
+    "url": "https://www.linkedin.com/in/thomas-bongiorno-90b283298/",
+    "image": "src/assets/linkedin.png"
   },
   {
     "key": 5,
     "platform": "GitHub",
-    "url": "https://github.com/tbongiorno"
+    "url": "https://github.com/tbongiorno",
+    "image": "src/assets/github.png"
   }
 ]
 
@@ -139,11 +142,12 @@ const aboutContent = (
         <Education
           name={school.name}
           timeline={school.timeline}
-          description={school.description}
           gpa={school.gpa}
           image={school.image}
         />
       ))}
+      <br></br>
+      <h3 className='general-title'>Hobbies</h3>
       {hobbies.map((hobby) => (
         <Hobbies
           name={hobby.name}
@@ -192,6 +196,7 @@ const contactContent = (
         <Contact 
           platform={contact.platform}
           url={contact.url}
+          image={contact.image}
         />
       ))}
     </div>

@@ -1,18 +1,19 @@
-const Education = ({ name, timeline, description, gpa, image}) => {
+const Education = ({ name, timeline, gpa, image}) => {
     return (
         <div className="general-card">
-            <div className="general-card-image">
-                <img 
-                    src={image}
-                    alt={name}
-                    className="general-image"
-                />
+            <div className="general-card-image-wrapper">
+                <div className="general-card-image">
+                    <img 
+                        src={image}
+                        alt={name}
+                        className="general-image"
+                    />
+                </div>
             </div>
             <div className="general-content">
                 <h3 className="general-title">{name}</h3>
-                <h4 className="general-timeline">{timeline}</h4>
-                <h4 className="general-gpa">{gpa}</h4>
-                <p className="general-description">{description}</p>
+                <h4 className="general-timeline">From: {timeline}</h4>
+                <h4 className="general-gpa">Overall GPA: {gpa}</h4>
             </div>
         </div>
     );

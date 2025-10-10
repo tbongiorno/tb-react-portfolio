@@ -1,12 +1,14 @@
 const Work = ({title, description, image}) => {
     return (
         <div className="general-card">
-            <div className="general-card-image">
-                <img 
-                    src={image}
-                    alt={title}
-                    className="general-image"
-                />
+            <div className="general-card-image-wrapper">
+                <div className="general-card-image">
+                    <img 
+                        src={image}
+                        alt={name}
+                        className="general-image"
+                    />
+                </div>
             </div>
             <div className="general-content">
                 <h3 className="general-title">{title}</h3>

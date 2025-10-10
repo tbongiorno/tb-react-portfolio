@@ -1,4 +1,4 @@
-const Contact = ({ platform, url}) => {
+const Contact = ({ platform, url, image }) => {
     function checkEmail() {
         if (platform.includes("Email") === true){
             return <a href="mailto:{url}">{url}</a>
@@ -9,11 +9,23 @@ const Contact = ({ platform, url}) => {
         }
     }
     return (
-        <div className="contact-info">
-            <div className="contact-item">
-                <h3>{platform}</h3>
-                {checkEmail()}
+        <div className="general-card">
+            <div className="general-card-image-wrapper">
+                <div className='general-card-image'>
+                    <img 
+                        src={image}
+                        alt={name}
+                        className="general-image"
+                    />
+                </div>
             </div>
+            <div className="general-content">
+                <div className="contact-item">
+                    <h3>{platform}</h3>
+                    {checkEmail()}
+                </div>
+            </div>
+            
         </div>
     )
 }
