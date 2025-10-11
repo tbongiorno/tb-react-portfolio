@@ -5,7 +5,7 @@ const Work = ({title, description, image}) => {
                 <div className="general-card-image">
                     <img 
                         src={image}
-                        alt={name}
+                        alt={title}
                         className="general-image"
                     />
                 </div>

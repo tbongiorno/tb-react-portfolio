@@ -162,6 +162,7 @@ const aboutContent = (
 const workContent = (
   <div>
     <div className="work-content">
+      <h3 className="general-title">Previous Job Experiences</h3>
       {works.map((work) => (
         <Work 
           title={work.title}
@@ -176,6 +177,7 @@ const workContent = (
 const projectsContent = (
   <div>
     <div className="projects-content">
+       <h3 className="general-title">My Previous and Upcoming Projects</h3>
       {projects.map((project) => (
         <Project 
           title={project.title}
@@ -192,6 +194,7 @@ const projectsContent = (
 const contactContent = (
   <div>
     <div className="contact-content">
+       <h3 className="general-title">Ways to Contact Me and Other Useful Links</h3>
       {contacts.map((contact) => (
         <Contact 
           platform={contact.platform}
@@ -251,13 +254,13 @@ function App() {
               className={`tab-button ${activeTab === 'work' ?  'active': ''}`}
               onClick={() => setActiveTab('work')}
             >
-              Work Experience
+              Employment
             </button>
             <button
               className={`tab-button ${activeTab === 'projects' ?  'active': ''}`}
               onClick={() => setActiveTab('projects')}
             >
-              Project Experience
+              Projects
             </button>
             <button
               className={`tab-button ${activeTab === 'contact' ?  'active': ''}`}
