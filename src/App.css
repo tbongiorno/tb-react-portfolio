@@ -46,12 +46,16 @@ Update for Slideshow of images
   padding: 20px;
 }
 
+.tabs-content {
+  width: 100%;
+}
+
 .tabs-header {
   display: flex;
   justify-content: center;
   gap: 40px;
   margin-bottom: 20px;
-  border-bottom: 2px solid #2c2c2c;
+  border-bottom: 2px solid #3E92CC;
 }
 
 .tab-button {
@@ -67,8 +71,8 @@ Update for Slideshow of images
 }
 
 .tab-button.active {
-  color: white;
-  background-color: #3b82f6;
+  color: #F1FAEE;
+  background-color: #E63946;
 
 }
 
@@ -79,7 +83,7 @@ Update for Slideshow of images
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #3b82f6;
+  background-color: #E63946;
 }
 
 .tab-button.active::before {
@@ -89,7 +93,7 @@ Update for Slideshow of images
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #3b82f6;
+  background-color: #E63946;
 }
 
 button {
@@ -103,6 +107,10 @@ button {
   margin: 0 15%;
 }
 
+a {
+  color: #22223b;
+}
+
 .general-card {
   display: flex;
   flex-direction: row;
@@ -110,9 +118,9 @@ button {
   min-height: 180px;
   gap: 20px;
   padding: 20px;
-  background-color: #1c1c1c;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  background-color: #3E92CC;
+  border-radius: 25px;
+  margin-bottom: 20px;
   margin-left: 5%;
 }
 
@@ -151,6 +159,4 @@ button {
   text-align: left;
 }
 
-.tabs-content {
-  width: 100%;
-}
+

@@ -4,7 +4,8 @@ import Education from './Education'
 import Work from './Work'
 import Project from './Work'
 import Contact from './Contact'
-
+import styled, { createGlobalStyle } from 'styled-components';
+ 
 import './App.css'
 
 const schools = [
@@ -212,6 +213,13 @@ const contactContent = (
   </div>
 )
 
+const GlobalStyle = createGlobalStyle`
+  body {
+  background-color: #1D3557;
+  margin: 0;
+  }
+`
+
 
 function App() {
   const [activeTab, setActiveTab] = useState('about')
@@ -227,6 +235,7 @@ function App() {
 
   return (
     <>
+      <GlobalStyle />
       <div className="header">
           <h1>Thomas Bongiorno's Awesome Portfolio!</h1>
           <img 

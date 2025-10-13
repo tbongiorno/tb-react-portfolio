@@ -17,7 +17,7 @@ const Contact = ({ platform, url, image }) => {
                 <div className='general-card-image'>
                     <img 
                         src={image}
-                        alt={name}
+                        alt={platform}
                         className="general-image"
                     />
                 </div>
