@@ -63,7 +63,7 @@ Update for Slideshow of images
   color: #888;
   cursor: pointer;
   position: relative;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.5s ease-in-out;
 }
 
 .tab-button.active {
@@ -126,7 +126,7 @@ button {
 .general-card-image {
   width: 100%;
   height: 100%;
-  background: white;
+  background: 1c1c1c;
   border-radius: 8px;
   overflow: hidden;
   display: flex;

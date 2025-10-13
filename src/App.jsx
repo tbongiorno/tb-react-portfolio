@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Hobbies from './About'
+import Hobbies from './Hobbies'
 import Education from './Education'
 import Work from './Work'
 import Project from './Work'
@@ -72,7 +72,7 @@ const projects = [
     'title': 'Video Game Wishlist Maker',
     'description':'Flask website that allows users to create their own video game wishlists!',
     'link': 'https://github.com/tbongiorno/Game-Wishlist-Ranker',
-    'image': 'src/assets/flask-name.svg',
+    'image': 'src/assets/flask.png',
     'complete': true,
   },
   {
@@ -146,15 +146,6 @@ const aboutContent = (
           image={school.image}
         />
       ))}
-      <br></br>
-      <h3 className='general-title'>Hobbies</h3>
-      {hobbies.map((hobby) => (
-        <Hobbies
-          name={hobby.name}
-          description={hobby.description}
-          image={hobby.image}
-        />
-      ))}
     </div>
   </div>
 )
@@ -185,6 +176,21 @@ const projectsContent = (
           projectLink={project.link}
           image={project.image}
           complete={project.complete}
+        />
+      ))}
+    </div>
+  </div>
+)
+
+const hobbyContent = (
+  <div>
+    <div className="hobby-content">
+      <h3 className='general-title'>Hobbies</h3>
+      {hobbies.map((hobby) => (
+        <Hobbies
+          name={hobby.name}
+          description={hobby.description}
+          image={hobby.image}
         />
       ))}
     </div>
@@ -263,6 +269,12 @@ function App() {
               Projects
             </button>
             <button
+              className={`tab-button ${activeTab == `hobbies` ? `active`: ``}`}
+              onClick={() => setActiveTab('hobbies')}
+            >
+              Hobbies
+            </button>
+            <button
               className={`tab-button ${activeTab === 'contact' ?  'active': ''}`}
               onClick={() => setActiveTab('contact')}
             >
@@ -273,6 +285,7 @@ function App() {
             {activeTab === 'about' && aboutContent}
             {activeTab === 'work' && workContent}
             {activeTab === 'projects' && projectsContent}
+            {activeTab === 'hobbies' && hobbyContent}
             {activeTab === 'contact' && contactContent}
           </div>
       </div>
