@@ -6,6 +6,7 @@ const Work = ({title, description, image}) => {
                     <img 
                         src={image}
                         alt={title}
+                        loading="lazy"
                         className="general-image"
                     />
                 </div>

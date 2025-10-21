@@ -6,6 +6,7 @@ const Education = ({ name, timeline, gpa, image}) => {
                     <img 
                         src={image}
                         alt={name}
+                        loading="lazy"
                         className="general-image"
                     />
                 </div>

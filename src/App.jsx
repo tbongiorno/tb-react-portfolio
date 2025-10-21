@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import Hobbies from './Hobbies'
-import Education from './Education'
-import Work from './Work'
-import Project from './Work'
-import Contact from './Contact'
-import styled, { createGlobalStyle } from 'styled-components';
- 
+import React, { Suspense } from 'react';
+import { createGlobalStyle } from 'styled-components';
+
+const Hobbies = React.lazy(() => import('./Hobbies'));
+const Education = React.lazy(() => import('./Education'));
+const Work = React.lazy(() => import('./Work'))
+const Project = React.lazy(() => import('./Project'));
+const Contact = React.lazy(() => import('./Contact'));
 import './App.css'
 
 const schools = [
@@ -14,14 +15,14 @@ const schools = [
     "name": "Scotch Plains Fanwood High School",
     "timeline": "September 2019 -> June 2023",
     "gpa": "3.8",
-    "image": "src/assets/spf.jpg"
+    "image": "src/assets/spf.webp"
   },
   {
     "key": 2,
     "name": "Virginia Polytechnic Institute and State University",
     "timeline": "August 2023 -> Present Day",
     "gpa": "3.4",
-    "image": "src/assets/vt.jpeg"
+    "image": "src/assets/vt.webp"
   }
 ]
 
@@ -30,25 +31,25 @@ const hobbies = [
     "key": 1,
     "name": "Video Games",
     "description": "I love to play video games and have been doing so for many years. They are a great way for me to relax at the end of the day and connect with friends online",
-    "image": "/src/assets/video-games.jpg"
+    "image": "/src/assets/video-games.webp"
   },
   {
     "key": 2,
     "name": "Soccer",
     "description": "Soccer has been my favorite sport to play. I've been playing it since I was 5 years old and although I am not that good, I still find time to play in some intramural leagues when I have the time.",
-    "image": "/src/assets/soccer.jpg"
+    "image": "/src/assets/soccer.webp"
   },
   {
     "key": 3,
     "name": "Programming",
     "description": "It may seem weird to put this here, but I have a lot of fun programming and spend a lot of my free time creating new projects.",
-    "image": "/src/assets/programming.jpg"
+    "image": "/src/assets/programming.webp"
   },
   {
     "key": 4,
     "name": "Biking",
     "description": "When I was around 10 years old, my uncle gave me one of his old mountain bikes. I would ride that bike aroound my neighborhood and have even been using it to get around campus too.",
-    "image": "/src/assets/biking.jpg"
+    "image": "/src/assets/biking.webp"
   }, 
 ]
 
@@ -57,13 +58,13 @@ const works = [
     'key': 1,
     'title': "Bongiorno's Italian Pizzaria - Server",
     'description': "My Extended Families Pizzaria in Chicago that I worked at for 10+ years!",
-    "image": "src/assets/bongiorno.png"
+    "image": "src/assets/bongiorno.webp"
   },
   {
     'key': 2,
     'title': "Erickson Senior Living: Lantern Hill - Server",
     'description': "A senior living facility where I would serve food to residents at one of the 3 on campus restauraunts!",
-    "image": "src/assets/erickson.jpg"
+    "image": "src/assets/erickson.webp"
   }
 ]
 
@@ -73,7 +74,7 @@ const projects = [
     'title': 'Video Game Wishlist Maker',
     'description':'Flask website that allows users to create their own video game wishlists!',
     'link': 'https://github.com/tbongiorno/Game-Wishlist-Ranker',
-    'image': 'src/assets/flask.png',
+    'image': 'src/assets/flask.webp',
     'complete': true,
   },
   {
@@ -81,7 +82,7 @@ const projects = [
     'title': 'Portfolio Website',
     'description':'A Personal Portfolio Website in React.js that displays my talents to the world!',
     'link': 'https://github.com/tbongiorno/tb-react-portfolio',
-    'image': 'src/assets/react.png',
+    'image': 'src/assets/react.webp',
     'complete': true,
   },
   {
@@ -89,7 +90,7 @@ const projects = [
     'title': 'Solitaire',
     'description':'A remake of Solitaire in Godot!',
     'link': '',
-    'image': 'src/assets/checkbacksoon.jpg',
+    'image': 'src/assets/checkbacksoon.webp',
     'complete': true,
   }
 ]
@@ -100,31 +101,31 @@ const contacts = [
     "key": 1,
     "platform": "Personal Email",
     "url": "trbongiorno@gmail.com",
-    "image": "src/assets/gmail.png"
+    "image": "src/assets/gmail.webp"
   },
   {
     "key": 2,
     "platform": "Student Email",
     "url": "thomasb23@vt.edu",
-    "image": "src/assets/outlook.png"
+    "image": "src/assets/outlook.webp"
   },
   {
     "key": 3,
     "platform": "Phone Number",
     "url": "908-342-0667",
-    "image": "src/assets/iphone-call.jpg"
+    "image": "src/assets/iphone.webp"
   },
   {
     "key": 4,
     "platform": "LinkedIn",
     "url": "https://www.linkedin.com/in/thomas-bongiorno-90b283298/",
-    "image": "src/assets/linkedin.png"
+    "image": "src/assets/linkedin.webp"
   },
   {
     "key": 5,
     "platform": "GitHub",
     "url": "https://github.com/tbongiorno",
-    "image": "src/assets/github.png"
+    "image": "src/assets/github.webp"
   }
 ]
 
@@ -139,14 +140,16 @@ const aboutContent = (
         my past projects, work experience, contact information, and a little bit about me. Have Fun!
       </p>
       <h3 className='general-title'>Education</h3>
-      {schools.map((school) => (
-        <Education
-          name={school.name}
-          timeline={school.timeline}
-          gpa={school.gpa}
-          image={school.image}
-        />
-      ))}
+      <Suspense fallback={<div>Loading Schooling ... </div>}>
+        {schools.map((school) => (
+          <Education
+            name={school.name}
+            timeline={school.timeline}
+            gpa={school.gpa}
+            image={school.image}
+          />
+        ))}
+      </Suspense>
     </div>
   </div>
 )
@@ -155,13 +158,15 @@ const workContent = (
   <div>
     <div className="work-content">
       <h3 className="general-title">Previous Job Experiences</h3>
-      {works.map((work) => (
-        <Work 
-          title={work.title}
-          description={work.description}
-          image={work.image}
-        />
-      ))}
+      <Suspense fallback={<div>Loading Work Experiences ... </div>}>
+        {works.map((work) => (
+          <Work 
+            title={work.title}
+            description={work.description}
+            image={work.image}
+          />
+        ))}
+      </Suspense>
     </div>
   </div>
 )
@@ -169,16 +174,18 @@ const workContent = (
 const projectsContent = (
   <div>
     <div className="projects-content">
-       <h3 className="general-title">My Previous and Upcoming Projects</h3>
-      {projects.map((project) => (
-        <Project 
-          title={project.title}
-          description={project.description}
-          projectLink={project.link}
-          image={project.image}
-          complete={project.complete}
-        />
-      ))}
+      <h3 className="general-title">My Previous and Upcoming Projects</h3>
+      <Suspense fallback={<div>Loading Prior and Upcoming Projects ... </div>}>
+        {projects.map((project) => (
+          <Project 
+            title={project.title}
+            description={project.description}
+            projectLink={project.link}
+            image={project.image}
+            complete={project.complete}
+          />
+        ))}
+      </Suspense>
     </div>
   </div>
 )
@@ -187,13 +194,15 @@ const hobbyContent = (
   <div>
     <div className="hobby-content">
       <h3 className='general-title'>Hobbies</h3>
-      {hobbies.map((hobby) => (
-        <Hobbies
-          name={hobby.name}
-          description={hobby.description}
-          image={hobby.image}
-        />
-      ))}
+      <Suspense fallback={<div>Loading My Personal Hobbies ... </div>}>
+        {hobbies.map((hobby) => (
+          <Hobbies
+            name={hobby.name}
+            description={hobby.description}
+            image={hobby.image}
+          />
+        ))}
+      </Suspense>
     </div>
   </div>
 )
@@ -201,14 +210,16 @@ const hobbyContent = (
 const contactContent = (
   <div>
     <div className="contact-content">
-       <h3 className="general-title">Ways to Contact Me and Other Useful Links</h3>
-      {contacts.map((contact) => (
-        <Contact 
-          platform={contact.platform}
-          url={contact.url}
-          image={contact.image}
-        />
-      ))}
+      <h3 className="general-title">Ways to Contact Me and Other Useful Links</h3>
+      <Suspense fallback={<div>Loading Contact Information ... </div>}>
+        {contacts.map((contact) => (
+          <Contact 
+            platform={contact.platform}
+            url={contact.url}
+            image={contact.image}
+          />
+        ))}
+      </Suspense>
     </div>
   </div>
 )
@@ -236,29 +247,32 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div className="header">
-          <h1>Thomas Bongiorno's Awesome Portfolio!</h1>
+      <figure className="header">
+          <h1 style={{ textDecoration: "underline", fontFamily: "DM-Seriff", paddingTop: "1%"}}>Thomas Bongiorno's Awesome Portfolio!</h1>
           <img 
-          src={"/src/assets/my-pic-head.jpg"} 
+          src={"/src/assets/my-pic-head.webp"} 
           alt="My Epic Face" 
           className="header_image"
           width="300"
           height="400"
+          loading="lazy"
           />
           
-          <button onClick={onButtonClick}>
+          <button onClick={onButtonClick} style={{marginBottom: "0"}}>
             <img
-            src={"src/assets/resume.jpg"}
+            src={"src/assets/resume.webp"}
             alt="My Epic Resume"
             className="header_image"
             width="300"
             height="400"
+            loading="lazy"
           />
           </button>
-      </div>
+          <h4 style={{textDecoration: "none", marginTop: "1%", paddingBottom: "1%"}}> An Image of me and My Downloadable Resume!</h4>
+      </figure>
 
       <div className="tabs-container">
-          <div className="tabs-header">
+          <nav className="tabs-header">
             <button
               className={`tab-button ${activeTab === 'about' ?  'active': ''}`}
               onClick={() => setActiveTab('about')}
@@ -289,13 +303,15 @@ function App() {
             >
               Contact Me
             </button>
-          </div>
+          </nav>
           <div className="tabs-content">
-            {activeTab === 'about' && aboutContent}
-            {activeTab === 'work' && workContent}
-            {activeTab === 'projects' && projectsContent}
-            {activeTab === 'hobbies' && hobbyContent}
-            {activeTab === 'contact' && contactContent}
+            <Suspense fallback={<div>Loading Section ... </div>}>
+              {activeTab === 'about' && aboutContent}
+              {activeTab === 'work' && workContent}
+              {activeTab === 'projects' && projectsContent}
+              {activeTab === 'hobbies' && hobbyContent}
+              {activeTab === 'contact' && contactContent}
+            </Suspense>
           </div>
       </div>
     </>

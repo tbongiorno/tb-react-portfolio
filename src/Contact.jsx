@@ -18,6 +18,7 @@ const Contact = ({ platform, url, image }) => {
                     <img 
                         src={image}
                         alt={platform}
+                        loading="lazy"
                         className="general-image"
                     />
                 </div>

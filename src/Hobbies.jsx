@@ -6,6 +6,7 @@ const Hobbies = ({ name, description, image}) => {
                     <img 
                         src={image}
                         alt={name}
+                        loading="lazy"
                         className="general-image"
                     />
                 </div>

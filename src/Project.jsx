@@ -21,6 +21,7 @@ const Project = ({ title, description, image, projectLink, completed }) => {
                     <img 
                         src={image}
                         alt={title}
+                        loading="lazy"
                         className="general-image"
                     />
                 </div>
