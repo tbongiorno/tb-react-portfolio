@@ -24,6 +24,18 @@
   font-family: DM-Seriff;
 }
 
+.settings-tab{
+  background-color: #A7C7EC;
+  margin-left: 90%;
+  padding: 1%;
+}
+
+.settings{
+  background-color: #A7C7EC;
+  color: #22223b;
+  border-radius: 50px;
+}
+
 
 
 .header{

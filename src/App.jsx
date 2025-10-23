@@ -234,7 +234,7 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const [activeTab, setActiveTab] = useState('about')
-  const onButtonClick = () => {
+  const clickResume = () => {
     const pdfUrl = "src/assets/resume.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
@@ -244,9 +244,42 @@ function App() {
     document.body.removeChild(link);
   };
 
+  const [showSettings, setShowSettings] = useState(false);
+  const toggleSettings = () => {
+    setShowSettings(!showSettings);
+  }
+
+
   return (
     <>
       <GlobalStyle />
+      <button onClick={ toggleSettings } style={{marginLeft: "85%"}}>
+          Click On Me
+      </button>
+      
+      {showSettings &&
+        <div
+          style={{
+            position: "absolute",
+            top: "60px",
+            right: "20px",
+            width: "300px",
+            padding: "20px",
+            background: "white",
+            border: "1px solid #ccc",
+            borderRadius: "8px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+            zIndex: 1000, // ensures it appears above other elements
+          }}
+          >
+            <h3>Settings</h3>
+            <div className="settings">
+                <p>Hello There!</p>
+              </div>
+          </div>
+
+      }
+      
       <figure className="header">
           <h1 style={{ textDecoration: "underline", fontFamily: "DM-Seriff", paddingTop: "1%"}}>Thomas Bongiorno's Awesome Portfolio!</h1>
           <img 
@@ -258,7 +291,7 @@ function App() {
           loading="lazy"
           />
           
-          <button onClick={onButtonClick} style={{marginBottom: "0"}}>
+          <button onClick={ clickResume } style={{marginBottom: "0"}}>
             <img
             src={"src/assets/resume.webp"}
             alt="My Epic Resume"
