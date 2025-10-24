@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import React, { Suspense } from 'react';
-import { createGlobalStyle } from 'styled-components';
+import React, { Suspense, useState } from 'react';
 
 const Hobbies = React.lazy(() => import('./Hobbies'));
 const Education = React.lazy(() => import('./Education'));
 const Work = React.lazy(() => import('./Work'))
 const Project = React.lazy(() => import('./Project'));
 const Contact = React.lazy(() => import('./Contact'));
-import './App.css'
+import './App.css';
 
 const schools = [
   {
@@ -224,15 +222,8 @@ const contactContent = (
   </div>
 )
 
-const GlobalStyle = createGlobalStyle`
-  body {
-  background-color: #1D3557;
-  margin: 0;
-  }
-`
 
-
-function App() {
+function App({ toggleTheme, theme }) {
   const [activeTab, setActiveTab] = useState('about')
   const clickResume = () => {
     const pdfUrl = "src/assets/resume.pdf";
@@ -249,36 +240,55 @@ function App() {
     setShowSettings(!showSettings);
   }
 
+  const gotoTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
 
   return (
     <>
-      <GlobalStyle />
       <button onClick={ toggleSettings } style={{marginLeft: "85%"}}>
           Click On Me
       </button>
-      
-      {showSettings &&
-        <div
-          style={{
-            position: "absolute",
-            top: "60px",
-            right: "20px",
-            width: "300px",
-            padding: "20px",
-            background: "white",
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-            zIndex: 1000, // ensures it appears above other elements
-          }}
-          >
-            <h3>Settings</h3>
-            <div className="settings">
-                <p>Hello There!</p>
-              </div>
-          </div>
 
+      {showSettings &&
+        <div>
+          <div
+            style={{
+              justifyContent: 'center',
+              alignItems: "center",
+              alignContent: 'center',
+              width: "40%",
+              padding: "20px",
+              background: "#1D3557",
+              border: "5px solid #F1FAEE",
+              borderRadius: "8px",
+              boxShadow: "0 5px 50px black",
+              margin: 'auto',
+              zIndex: 100, // ensures it appears above other elements
+              
+            }}
+            >
+              <h3>Settings</h3>
+              <button onClick={ toggleTheme }>
+                Click to Change the theme!
+              </button>
+          </div>
+        </div>
       }
+
+      <button onClick={ gotoTop } style={{
+        position: 'fixed',
+        width: "10%",
+        height: "50px",
+        border: "5px solid #F1FAEE",
+        background: 'black',
+        top: "50px",
+        left: "50px",
+        }}>
+          Back To Top
+      </button>
       
       <figure className="header">
           <h1 style={{ textDecoration: "underline", fontFamily: "DM-Seriff", paddingTop: "1%"}}>Thomas Bongiorno's Awesome Portfolio!</h1>
