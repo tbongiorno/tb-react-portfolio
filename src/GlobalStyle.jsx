@@ -3,16 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.background};
-    text: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.color};
+    cardColor: %{({ theme }) => theme.cardColor};
+    cardBackground: %{({ theme }) => theme.cardBackground};
     margin: 0;
   }
 `;
-
-// const GlobalStyle = createGlobalStyle`
-//   body {
-//     background-color: ${({ theme }) => theme.background};
-//     text: ${({ theme }) => theme.text};
-//     margin: 0;
-//   }
-// `
-

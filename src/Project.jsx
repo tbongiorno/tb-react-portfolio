@@ -1,4 +1,4 @@
-const Project = ({ title, description, image, projectLink, completed }) => {
+const Project = ({ title, description, image, projectLink, completed, theme }) => {
     function checkCompleted() {
         if (completed === true) {
             return <a
@@ -15,7 +15,7 @@ const Project = ({ title, description, image, projectLink, completed }) => {
     }
 
     return (
-        <div className="general-card">
+        <div className="general-card" style={{ color: theme.cardColor, backgroundColor: theme.cardBackground }}>
             <div className="general-card-image-wrapper">
                 <div className="general-card-image">
                     <img 

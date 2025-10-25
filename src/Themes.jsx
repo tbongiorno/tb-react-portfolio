@@ -1,9 +1,15 @@
 export const lightTheme = {
     background: '#A7C7EC',
-    text: "#22223b"
+    color: "#22223b",
+    cardColor: "#F1FAEE",
+    cardBackground: "#1D3557",
+    borderBottom: "#1D3557"
 };
 
 export const darkTheme = {
     background: "#1D3557",
-    text: "#F1FAEE"
+    color: "#F1FAEE",
+    cardColor: "#22223b",
+    cardBackground: '#A7C7EC',
+    borderBottom: "#A7C7EC"
 };

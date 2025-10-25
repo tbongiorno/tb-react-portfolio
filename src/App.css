@@ -15,8 +15,7 @@
 }
 
 #root {
-  max-width: 1280px;
-  width: 70%;
+  width: 100%;
   margin: 0 15%;
   padding: 2rem;
   text-align: center;
@@ -25,23 +24,25 @@
 }
 
 .settings-tab{
-  background-color: #A7C7EC;
-  margin-left: 90%;
-  padding: 1%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 40%;
+  padding: 20px;    
+  border: 5px solid black;
+  border-radius: 25px;
+  box-shadow: 0 5px 50px black;
+  margin: auto;
+  z-index: 100;
 }
 
-.settings{
-  background-color: #A7C7EC;
-  color: #22223b;
-  border-radius: 50px;
-}
 
 
 
 .header{
-  background-color: #A7C7EC;
-  color: #22223b;
+  border: 5px solid black;
   border-radius: 50px;
+  box-shadow: 5px 5px 20px black;
 }
 
 /*
@@ -68,12 +69,11 @@ Update for Slideshow of images
   justify-content: center;
   gap: 40px;
   margin-bottom: 20px;
-  border-bottom: 2px solid #A7C7EC;
+  border-bottom: 2px solid;
 }
 
 .tab-button {
   font-family: DM-Seriff;
-  padding: 10px 30px;
   font-size: 1.1rem;
   background: none;
   border: none;
@@ -121,10 +121,6 @@ button {
   text-decoration: none;
 }
 
-a {
-  color: #22223b;
-}
-
 .general-card {
   display: flex;
   flex-direction: row;
@@ -132,10 +128,11 @@ a {
   min-height: 180px;
   gap: 20px;
   padding: 20px;
-  background-color: #A7C7EC;
+  border: 5px solid black;
   border-radius: 25px;
   margin-bottom: 20px;
   margin-left: 5%;
+  box-shadow: 5px 5px 20px black;
 }
 
 
@@ -171,7 +168,6 @@ a {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  color: #22223b
 }
 
 

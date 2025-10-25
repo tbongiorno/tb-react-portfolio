@@ -1,6 +1,6 @@
-const Hobbies = ({ name, description, image}) => {
+const Hobbies = ({ name, description, image, theme }) => {
     return (
-        <div className="general-card">
+        <div className="general-card" style={{ color: theme.cardColor, backgroundColor: theme.cardBackground }}>
             <div className="general-card-image-wrapper">
                 <div className="general-card-image">
                     <img 

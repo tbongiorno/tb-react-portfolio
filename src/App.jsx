@@ -1,4 +1,5 @@
 import React, { Suspense, useState } from 'react';
+import { useTheme } from "styled-components";
 
 const Hobbies = React.lazy(() => import('./Hobbies'));
 const Education = React.lazy(() => import('./Education'));
@@ -93,7 +94,6 @@ const projects = [
   }
 ]
 
-
 const contacts = [
   {
     "key": 1,
@@ -127,103 +127,10 @@ const contacts = [
   }
 ]
 
-const aboutContent = (
-  <div>
-    <div className="about-content">
-      <h3 className="general-title">About Me</h3>
-      <p className="blurb">My name is Thomas Bongiorno and as of writing this, I am a junior majoring in Computer Science at Virginia Tech. I got into Computer Science really late into high school and was not
-        confident enough to create new projects until this past summer, where I made a Video Game Wishlist using Flask. I really enjoyed making that and wanted to create a place to display any 
-        of my past and future projects within. I chose to make this in React because it is a commonly used frontend framework and because I know just enough of the basics to create a basic 
-        portfolio, but I hope to come back to this site as I make more projects and enhance the depth (I already have a few ideas in mind). So anyways, enjoy this portfolio, it contains all of
-        my past projects, work experience, contact information, and a little bit about me. Have Fun!
-      </p>
-      <h3 className='general-title'>Education</h3>
-      <Suspense fallback={<div>Loading Schooling ... </div>}>
-        {schools.map((school) => (
-          <Education
-            name={school.name}
-            timeline={school.timeline}
-            gpa={school.gpa}
-            image={school.image}
-          />
-        ))}
-      </Suspense>
-    </div>
-  </div>
-)
 
-const workContent = (
-  <div>
-    <div className="work-content">
-      <h3 className="general-title">Previous Job Experiences</h3>
-      <Suspense fallback={<div>Loading Work Experiences ... </div>}>
-        {works.map((work) => (
-          <Work 
-            title={work.title}
-            description={work.description}
-            image={work.image}
-          />
-        ))}
-      </Suspense>
-    </div>
-  </div>
-)
+function App({ toggleTheme }) {
+  const theme = useTheme();
 
-const projectsContent = (
-  <div>
-    <div className="projects-content">
-      <h3 className="general-title">My Previous and Upcoming Projects</h3>
-      <Suspense fallback={<div>Loading Prior and Upcoming Projects ... </div>}>
-        {projects.map((project) => (
-          <Project 
-            title={project.title}
-            description={project.description}
-            projectLink={project.link}
-            image={project.image}
-            complete={project.complete}
-          />
-        ))}
-      </Suspense>
-    </div>
-  </div>
-)
-
-const hobbyContent = (
-  <div>
-    <div className="hobby-content">
-      <h3 className='general-title'>Hobbies</h3>
-      <Suspense fallback={<div>Loading My Personal Hobbies ... </div>}>
-        {hobbies.map((hobby) => (
-          <Hobbies
-            name={hobby.name}
-            description={hobby.description}
-            image={hobby.image}
-          />
-        ))}
-      </Suspense>
-    </div>
-  </div>
-)
-
-const contactContent = (
-  <div>
-    <div className="contact-content">
-      <h3 className="general-title">Ways to Contact Me and Other Useful Links</h3>
-      <Suspense fallback={<div>Loading Contact Information ... </div>}>
-        {contacts.map((contact) => (
-          <Contact 
-            platform={contact.platform}
-            url={contact.url}
-            image={contact.image}
-          />
-        ))}
-      </Suspense>
-    </div>
-  </div>
-)
-
-
-function App({ toggleTheme, theme }) {
   const [activeTab, setActiveTab] = useState('about')
   const clickResume = () => {
     const pdfUrl = "src/assets/resume.pdf";
@@ -245,31 +152,117 @@ function App({ toggleTheme, theme }) {
     document.documentElement.scrollTop = 0;
   }
 
+  const aboutContent = (
+    <div>
+      <div className="about-content">
+        <h3 className="general-title">About Me</h3>
+        <p className="blurb">My name is Thomas Bongiorno and as of writing this, I am a junior majoring in Computer Science at Virginia Tech. I got into Computer Science really late into high school and was not
+          confident enough to create new projects until this past summer, where I made a Video Game Wishlist using Flask. I really enjoyed making that and wanted to create a place to display any 
+          of my past and future projects within. I chose to make this in React because it is a commonly used frontend framework and because I know just enough of the basics to create a basic 
+          portfolio, but I hope to come back to this site as I make more projects and enhance the depth (I already have a few ideas in mind). So anyways, enjoy this portfolio, it contains all of
+          my past projects, work experience, contact information, and a little bit about me. Have Fun!
+        </p>
+        <h3 className='general-title'>Education</h3>
+        <Suspense fallback={<div>Loading Schooling ... </div>}>
+          {schools.map((school) => (
+            <Education
+              name={school.name}
+              timeline={school.timeline}
+              gpa={school.gpa}
+              image={school.image}
+              theme={ theme }
+            />
+          ))}
+        </Suspense>
+      </div>
+    </div>
+  )
+
+  const workContent = (
+    <div>
+      <div className="work-content">
+        <h3 className="general-title">Previous Job Experiences</h3>
+        <Suspense fallback={<div>Loading Work Experiences ... </div>}>
+          {works.map((work) => (
+            <Work 
+              title={work.title}
+              description={work.description}
+              image={work.image}
+              theme={ theme }
+            />
+          ))}
+        </Suspense>
+      </div>
+    </div>
+  )
+
+  const projectsContent = (
+    <div>
+      <div className="projects-content">
+        <h3 className="general-title">My Previous and Upcoming Projects</h3>
+        <Suspense fallback={<div>Loading Prior and Upcoming Projects ... </div>}>
+          {projects.map((project) => (
+            <Project 
+              title={project.title}
+              description={project.description}
+              projectLink={project.link}
+              image={project.image}
+              complete={project.complete}
+              theme={ theme }
+            />
+          ))}
+        </Suspense>
+      </div>
+    </div>
+  )
+
+  const hobbyContent = (
+    <div>
+      <div className="hobby-content">
+        <h3 className='general-title'>Hobbies</h3>
+        <Suspense fallback={<div>Loading My Personal Hobbies ... </div>}>
+          {hobbies.map((hobby) => (
+            <Hobbies
+              name={hobby.name}
+              description={hobby.description}
+              image={hobby.image}
+              theme={ theme }
+            />
+          ))}
+        </Suspense>
+      </div>
+    </div>
+  )
+
+  const contactContent = (
+    <div>
+      <div className="contact-content">
+        <h3 className="general-title">Ways to Contact Me and Other Useful Links</h3>
+        <Suspense fallback={<div>Loading Contact Information ... </div>}>
+          {contacts.map((contact) => (
+            <Contact 
+              platform={contact.platform}
+              url={contact.url}
+              image={contact.image}
+              theme={ theme }
+            />
+          ))}
+        </Suspense>
+      </div>
+    </div>
+  )
+
 
   return (
     <>
-      <button onClick={ toggleSettings } style={{marginLeft: "85%"}}>
+      <button onClick={ toggleSettings } style={{position: 'fixed', marginLeft: "35%", border: "5px solid"}}>
           Click On Me
       </button>
 
       {showSettings &&
         <div>
-          <div
-            style={{
-              justifyContent: 'center',
-              alignItems: "center",
-              alignContent: 'center',
-              width: "40%",
-              padding: "20px",
-              background: "#1D3557",
-              border: "5px solid #F1FAEE",
-              borderRadius: "8px",
-              boxShadow: "0 5px 50px black",
-              margin: 'auto',
-              zIndex: 100, // ensures it appears above other elements
-              
-            }}
-            >
+          <div className="settings-tab"
+            style={{ color: theme.cardColor, backgroundColor: theme.cardBackground }}>
               <h3>Settings</h3>
               <button onClick={ toggleTheme }>
                 Click to Change the theme!
@@ -290,7 +283,7 @@ function App({ toggleTheme, theme }) {
           Back To Top
       </button>
       
-      <figure className="header">
+      <figure className="header" style={{ color: theme.cardColor, backgroundColor: theme.cardBackground }}>
           <h1 style={{ textDecoration: "underline", fontFamily: "DM-Seriff", paddingTop: "1%"}}>Thomas Bongiorno's Awesome Portfolio!</h1>
           <img 
           src={"/src/assets/my-pic-head.webp"} 
