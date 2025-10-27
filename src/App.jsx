@@ -254,8 +254,8 @@ function App({ toggleTheme }) {
 
 
   return (
-    <>
-      <button onClick={ toggleSettings } style={{position: 'fixed', marginLeft: "35%", border: "5px solid"}}>
+    <div>
+      <button onClick={ toggleSettings } style={{position: 'fixed', margin: "5% 0% 0% 35%", border: "5px solid"}}>
           Click On Me
       </button>
 
@@ -271,15 +271,7 @@ function App({ toggleTheme }) {
         </div>
       }
 
-      <button onClick={ gotoTop } style={{
-        position: 'fixed',
-        width: "10%",
-        height: "50px",
-        border: "5px solid #F1FAEE",
-        background: 'black',
-        top: "50px",
-        left: "50px",
-        }}>
+      <button onClick={ gotoTop } style={{position: 'fixed', margin: "5% 0% 0% -45%", border: "5px solid"}}>
           Back To Top
       </button>
       
@@ -350,7 +342,7 @@ function App({ toggleTheme }) {
             </Suspense>
           </div>
       </div>
-    </>
+    </div>
   )
 }
 
