@@ -14,14 +14,14 @@ const schools = [
     "name": "Scotch Plains Fanwood High School",
     "timeline": "September 2019 -> June 2023",
     "gpa": "3.8",
-    "image": "./public/assets/spf.webp"
+    "image": "./assets/spf.webp"
   },
   {
     "key": 2,
     "name": "Virginia Polytechnic Institute and State University",
     "timeline": "August 2023 -> Present Day",
     "gpa": "3.4",
-    "image": "./public/assets/vt.webp"
+    "image": "./assets/vt.webp"
   }
 ]
 
@@ -30,25 +30,25 @@ const hobbies = [
     "key": 1,
     "name": "Video Games",
     "description": "I love to play video games and have been doing so for many years. They are a great way for me to relax at the end of the day and connect with friends online",
-    "image": "./public/assets/video-games.webp"
+    "image": "./assets/video-games.webp"
   },
   {
     "key": 2,
     "name": "Soccer",
     "description": "Soccer has been my favorite sport to play. I've been playing it since I was 5 years old and although I am not that good, I still find time to play in some intramural leagues when I have the time.",
-    "image": "./public/assets/soccer.webp"
+    "image": "./assets/soccer.webp"
   },
   {
     "key": 3,
     "name": "Programming",
     "description": "It may seem weird to put this here, but I have a lot of fun programming and spend a lot of my free time creating new projects.",
-    "image": "./public/assets/programming.webp"
+    "image": "./assets/programming.webp"
   },
   {
     "key": 4,
     "name": "Biking",
     "description": "When I was around 10 years old, my uncle gave me one of his old mountain bikes. I would ride that bike aroound my neighborhood and have even been using it to get around campus too.",
-    "image": "./public/assets/biking.webp"
+    "image": "./assets/biking.webp"
   }, 
 ]
 
@@ -57,13 +57,13 @@ const works = [
     'key': 1,
     'title': "Bongiorno's Italian Pizzaria - Server",
     'description': "My Extended Families Pizzaria in Chicago that I worked at for 10+ years!",
-    "image": "./public/assets/bongiorno.webp"
+    "image": "./assets/bongiorno.webp"
   },
   {
     'key': 2,
     'title': "Erickson Senior Living: Lantern Hill - Server",
     'description': "A senior living facility where I would serve food to residents at one of the 3 on campus restauraunts!",
-    "image": "./public/assets/erickson.webp"
+    "image": "./assets/erickson.webp"
   }
 ]
 
@@ -73,7 +73,7 @@ const projects = [
     'title': 'Video Game Wishlist Maker',
     'description':'Flask website that allows users to create their own video game wishlists!',
     'link': 'https://github.com/tbongiorno/Game-Wishlist-Ranker',
-    'image': './public/assets/flask.webp',
+    'image': './assets/flask.webp',
     'complete': true,
   },
   {
@@ -81,7 +81,7 @@ const projects = [
     'title': 'Portfolio Website',
     'description':'A Personal Portfolio Website in React.js that displays my talents to the world!',
     'link': 'https://github.com/tbongiorno/tb-react-portfolio',
-    'image': './public/assets/react.webp',
+    'image': './assets/react.webp',
     'complete': true,
   },
   {
@@ -89,7 +89,7 @@ const projects = [
     'title': 'Solitaire',
     'description':'A remake of Solitaire in Godot!',
     'link': '',
-    'image': './public/assets/checkbacksoon.webp',
+    'image': './assets/checkbacksoon.webp',
     'complete': true,
   }
 ]
@@ -99,31 +99,31 @@ const contacts = [
     "key": 1,
     "platform": "Personal Email",
     "url": "trbongiorno@gmail.com",
-    "image": "./public/assets/gmail.webp"
+    "image": "./assets/gmail.webp"
   },
   {
     "key": 2,
     "platform": "Student Email",
     "url": "thomasb23@vt.edu",
-    "image": "./public/assets/outlook.webp"
+    "image": "./assets/outlook.webp"
   },
   {
     "key": 3,
     "platform": "Phone Number",
     "url": "908-342-0667",
-    "image": "./public/assets/iphone.webp"
+    "image": "./assets/iphone.webp"
   },
   {
     "key": 4,
     "platform": "LinkedIn",
     "url": "https://www.linkedin.com/in/thomas-bongiorno-90b283298/",
-    "image": "./public/assets/linkedin.webp"
+    "image": "./assets/linkedin.webp"
   },
   {
     "key": 5,
     "platform": "GitHub",
     "url": "https://github.com/tbongiorno",
-    "image": "./public/assets/github.webp"
+    "image": "./assets/github.webp"
   }
 ]
 
@@ -133,7 +133,7 @@ function App({ toggleTheme }) {
 
   const [activeTab, setActiveTab] = useState('about')
   const clickResume = () => {
-    const pdfUrl = "./public/assets/resume.pdf";
+    const pdfUrl = "./assets/resume.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.download = "ThomasBongiornoResume2025"
@@ -278,7 +278,7 @@ function App({ toggleTheme }) {
       <figure className="header" style={{ color: theme.cardColor, backgroundColor: theme.cardBackground }}>
           <h1 style={{ textDecoration: "underline", fontFamily: "DM-Seriff", paddingTop: "1%"}}>Thomas Bongiorno's Awesome Portfolio!</h1>
           <img 
-          src={"./public/assets/my-pic-head.webp"} 
+          src={"./assets/my-pic-head.webp"} 
           alt="My Epic Face" 
           className="header_image"
           width="300"
@@ -288,7 +288,7 @@ function App({ toggleTheme }) {
           
           <button onClick={ clickResume } style={{marginBottom: "0"}}>
             <img
-            src={"./public/assets/resume.webp"}
+            src={"./assets/resume.webp"}
             alt="My Epic Resume"
             className="header_image"
             width="300"
