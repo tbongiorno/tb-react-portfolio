@@ -13,8 +13,8 @@ const Education = ({ name, timeline, gpa, image, theme}) => {
             </div>
             <div className="general-content">
                 <h3 className="general-title">{name}</h3>
-                <h4 className="general-timeline">Timeline: {timeline}</h4>
-                <h4 className="general-gpa">Overall GPA: {gpa}</h4>
+                <p className="general-timeline">Timeline: {timeline}</p>
+                <p className="general-gpa">Overall GPA: {gpa}</p>
             </div>
         </div>
     );

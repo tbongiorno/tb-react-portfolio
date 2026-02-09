@@ -24,6 +24,42 @@
 }
 
 
+h1.my-title {
+  font-family: "DM-Seriff";
+  padding-top: 1rem;
+  font-size: clamp(1rem, 4vw, 4rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: clamp(0.8rem, 2vw, 1.6rem);
+  line-height: 1.2;
+}
+
+h5 {
+  font-size: clamp(0.75rem, 2vw, 1.6rem);
+  line-height: 1.2;
+}
+
+p {
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  line-height: 1.2;
+}
+
+img {
+  width: clamp(100px, 20vw, 300px);
+  height: auto;
+}
 
 .settings-tab{
   justify-content: center;
@@ -38,28 +74,40 @@
   z-index: 100;
 }
 
-
+.on-screen-button {
+  position: fixed;
+  border: 5px solid white;
+  margin: 1rem 0 0 0;
+  font-size: clamp(0.25rem, 1rem, 1.25rem);
+  padding: clamp(0.4rem, 2vw, 0.75rem) clamp(0.6rem, 2vw, 1.25rem);
+}
 
 
 .header{
+  padding: 1rem;
   border: 5px solid black;
   border-radius: 50px;
   box-shadow: 5px 5px 20px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*
 Update for Slideshow of images
 */
-.header_image {
-  display:flexbox;
-  justify-content: center;
+.header_images {
+  display:flex;
+  flex-direction: row;
 }
 
 
 .tabs-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tabs-content {
@@ -68,8 +116,9 @@ Update for Slideshow of images
 
 .tabs-header {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  gap: 40px;
+  gap: 3rem;
   margin-bottom: 20px;
   border-bottom: 2px solid;
 }
@@ -126,10 +175,10 @@ button {
 .general-card {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 60%;
   min-height: 180px;
-  gap: 20px;
-  padding: 20px;
+  gap: 1rem;
+  padding: 1.25rem;
   border: 5px solid black;
   border-radius: 25px;
   margin-bottom: 20px;
@@ -137,12 +186,6 @@ button {
   box-shadow: 5px 5px 20px black;
 }
 
-
-.general-card-image-wrapper {
-  flex: 0 0 180px;
-  height: 180px;
-  align-self: center;
-}
 
 .general-card-image {
   width: 100%;
@@ -172,4 +215,10 @@ button {
   text-align: left;
 }
 
+
+.about-content, .work-content, .projects-content, .hobby-content, .contact-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 

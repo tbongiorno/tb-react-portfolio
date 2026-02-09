@@ -88,9 +88,25 @@ const projects = [
     "key": 3,
     'title': 'Solitaire',
     'description':'A remake of Solitaire in Godot!',
-    'link': '',
-    'image': './assets/checkbacksoon.webp',
+    'link': 'https://github.com/tbongiorno/SolitaireGodot',
+    'image': './assets/solitaire.png',
     'complete': true,
+  },
+  {
+    "key": 4,
+    "title": "Untitled Video Game",
+    "description": "To Be Added",
+    "link": "",
+    "image": "./assets/checkbacksoon.webp",
+    "complete": false,
+  },
+  {
+    "key": 5,
+    "title": "Untitled Web Project",
+    "description": "To Be Added",
+    "link": "",
+    "image": "./assets/checkbacksoon.webp",
+    "complete": false,
   }
 ]
 
@@ -150,7 +166,7 @@ function App({ toggleTheme }) {
   const gotoTop = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-  }
+  };
 
   const aboutContent = (
     <div>
@@ -207,7 +223,7 @@ function App({ toggleTheme }) {
               description={project.description}
               projectLink={project.link}
               image={project.image}
-              complete={project.complete}
+              completed={project.complete}
               theme={ theme }
             />
           ))}
@@ -255,7 +271,12 @@ function App({ toggleTheme }) {
 
   return (
     <div>
-      <button onClick={ toggleSettings } style={{position: 'fixed', margin: "5% 0% 0% 35%", border: "5px solid"}}>
+      
+      <button onClick={ gotoTop } className="on-screen-button" style={{marginLeft: "-45%"}}>
+          Back To Top
+      </button>
+
+      <button onClick={ toggleSettings } className="on-screen-button" style={{marginLeft: "35%"}}>
           Click On Me
       </button>
 
@@ -271,31 +292,28 @@ function App({ toggleTheme }) {
         </div>
       }
 
-      <button onClick={ gotoTop } style={{position: 'fixed', margin: "5% 0% 0% -45%", border: "5px solid"}}>
-          Back To Top
-      </button>
+      
       
       <figure className="header" style={{ color: theme.cardColor, backgroundColor: theme.cardBackground }}>
-          <h1 style={{ textDecoration: "underline", fontFamily: "DM-Seriff", paddingTop: "1%"}}>Thomas Bongiorno's Awesome Portfolio!</h1>
-          <img 
-          src={"./assets/my-pic-head.webp"} 
-          alt="My Epic Face" 
-          className="header_image"
-          width="300"
-          height="400"
-          loading="lazy"
-          />
-          
-          <button onClick={ clickResume } style={{marginBottom: "0"}}>
-            <img
-            src={"./assets/resume.webp"}
-            alt="My Epic Resume"
+          <h1 className="my-title">Thomas Bongiorno's Awesome Portfolio!</h1>
+            <div className="header_images">
+            <img 
+            src={"./assets/my-pic-head.webp"} 
+            alt="My Epic Face" 
             className="header_image"
-            width="300"
-            height="400"
             loading="lazy"
-          />
-          </button>
+            />
+            
+            <button onClick={ clickResume } style={{marginBottom: "0"}}>
+              <img
+              src={"./assets/resume.webp"}
+              alt="My Epic Resume"
+              className="header_image"
+              loading="lazy"
+            />
+            </button>
+          </div>
+          
           <h4 style={{textDecoration: "none", marginTop: "1%", paddingBottom: "1%"}}> An Image of me and My Downloadable Resume!</h4>
       </figure>
 
